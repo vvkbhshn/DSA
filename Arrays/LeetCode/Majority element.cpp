@@ -7,13 +7,13 @@ public:
         int n=nums.size();
         int cnt=1, temp=nums[0];
         for(int i=1;i<n;i++){
-            if(nums[i]==temp) cnt++;
+            if(cnt==0){
+                temp=nums[i];
+                cnt=1;
+            }
             else{
-                cnt--;
-                if(cnt==0){
-                    temp=nums[i];
-                    cnt=1;
-                }
+                if(nums[i]==temp) cnt++;
+                else cnt--;
             }
         }
         cnt=0;
