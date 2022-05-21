@@ -2,17 +2,17 @@
 
 int Solution::solve(vector<int> &A, int B) {
     int n=A.size();
-    int temp=0;
-    int sum[n];
-    int res=INT_MAX;
-    for(int i=0;i<n;i++){
+    int sum=0, temp=0;
+    for(int i=0;i<n-B;i++){
+        sum+=A[i];
         temp+=A[i];
-        sum[i]=temp;
     }
-    if(B==n) return sum[n-1];
-    int minSubarray=sum[n-B-1];
+    int minSubarraySum=temp;
     for(int i=n-B;i<n;i++){
-        minSubarray=min(minSubarray,sum[i]-sum[i+B-n]);
+        //Sliding Window Technique to calculate sum of subarrays of length n-B
+        temp=temp+A[i]-A[i-(n-B)];
+        minSubarraySum=min(minSubarraySum,temp);
+        sum+=A[i];
     }
-    return sum[n-1]-minSubarray;
+    return sum-minSubarraySum;
 }
