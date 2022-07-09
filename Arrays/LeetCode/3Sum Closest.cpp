@@ -15,14 +15,9 @@ public:
                     res=target;
                     break;
                 }
-                else if(b<target-a){
-                    if(abs(target-(a+b))<abs(target-res)) res=a+b;
-                    l++;
-                }
-                else{
-                    if(abs(target-(a+b))<abs(target-res)) res=a+b;
-                    r--;
-                }
+                else if(b<target-a) l++;
+                else r--;
+                if(abs(target-(a+b))<abs(target-res)) res=a+b;
             }
         }
         return res;

@@ -1,4 +1,4 @@
-//problem link: https://leetcode.com/problems/two-sum/submissions/
+//problem link: https://leetcode.com/problems/two-sum/
 
 class Solution {
 public:       
