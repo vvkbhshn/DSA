@@ -7,7 +7,7 @@ int search(vector<int> &A, int l, int r, int num){
         if(A[mid]<=num) r=mid-1;
         else{
             l=mid+1;
-            if(idx==-1 || A[idx]>=A[mid]) idx=mid;
+            idx=mid;
         }
     }
     return idx;

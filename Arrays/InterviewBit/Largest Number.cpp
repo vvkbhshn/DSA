@@ -17,8 +17,6 @@ string Solution::largestNumber(const vector<int> &A) {
     sort(v.begin(),v.end(),myCmp);
     string s="";
     for(auto x:v) s+=x;
-    if(s[0]=='0'){
-        while(s.length()!=1) s.pop_back();
-    }
+    if(s[0]=='0') s="0";
     return s;
 }
