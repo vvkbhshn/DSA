@@ -9,6 +9,7 @@ public:
             res=max(res,min(height[i],height[j])*(j-i));
             if(height[i]<height[j]) i++;
             else j--;
+            
         }
         return res;
         
