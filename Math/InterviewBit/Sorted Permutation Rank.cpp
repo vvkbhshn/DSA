@@ -1,23 +1,19 @@
 //problem link: https://www.interviewbit.com/problems/sorted-permutation-rank/
 
 int MOD=1000003;
+
 int Solution::findRank(string A) {
     int n=A.length();
-    long long fact[n+1], temp=1;
-    for(int i=1;i<=n;i++){
-        temp=(temp*i)%MOD;
-        fact[i]=temp;
-    }
-    long long res=1;
-    long long freq[256]={0};
-    for(int i=0;i<n;i++) freq[(int)A[i]]++;
-    for(int i=0;i<n;i++){
+    int freq[256]={0};
+    long long res=0, fact=1;
+    for(int i=n-1;i>=0;i--){
         long long cnt=0;
         for(int j=0;j<(int)A[i];j++){
-            if(freq[j]>0) cnt+=freq[j];
+            cnt=(cnt+freq[j])%MOD;
         }
-        res=(res+(cnt*fact[n-1-i])%MOD)%MOD;
-        freq[(int)A[i]]--;
+        res=(res+cnt*fact)%MOD;
+        fact=(fact*(n-i))%MOD;
+        freq[A[i]]++;
     }
-    return res;
+    return (res+1)%MOD;
 }
