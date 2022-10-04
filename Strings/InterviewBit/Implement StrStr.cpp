@@ -24,7 +24,7 @@ void fillLPS(vector<int> &lps, string s){
 
 
 int Solution::strStr(const string A, const string B) {
-    //Rabin Karp Algorithm
+    //KMP Algorithm
     int n=A.length(), m=B.length();
     vector<int> lps(m);
     fillLPS(lps,B);
